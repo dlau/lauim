@@ -1,0 +1,37 @@
+extends layout
+//- this logic should be moved to a view at some point
+
+block content
+  - var lineHeight = 2.2;
+  - var archives = _.chain(env.helpers.getArticles(contents)).groupBy(function(item) {
+  -   return item.date.getFullYear()
+  - }).value()
+  - for (var archive in archives) {
+  -  archives[archive] = _.groupBy(archives[archive], function(item){return item.date.getMonth();})
+  - }
+  - var month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  .container
+    .row
+    h2 Blog
+    .row
+      - var yearsK = _.chain(archives).keys().reverse().value()
+      - for(var year in yearsK)
+        .panel
+          - months = archives[yearsK[year]]
+          - var yearHeight = lineHeight * _.reduce(months, function(memo,month) { return memo + month.length; }, 0);
+          span.year-label=yearsK[year]
+          - var monthsK = _.chain(months).keys().reverse().value()
+          - for(month in monthsK){
+            - var monthHeight = lineHeight * months[monthsK[month]].length
+            //-li
+              //-span.month-label(style='line-height:'+monthHeight+'em')=month_names[monthsK[month]]
+              //-ul(style='margin-left:7em')
+            each item in months[monthsK[month]]
+              .row
+                .small-2.columns
+                  |#{(item.date+'').split(/[, ]/).slice(1,3).join(' ')}
+                  //-|#{item.date}
+                .small-8.columns
+                a(href=item.url)
+                  = item.title
+          - }

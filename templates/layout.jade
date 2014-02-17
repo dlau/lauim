@@ -1,0 +1,51 @@
+doctype html
+block vars
+  - var bodyclass = null;
+html(lang='en')
+  head
+    block head
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+      meta(name='viewport', content='width=device-width')
+      title
+        block title
+          = 'weak.io'
+      link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')
+      link(rel='stylesheet', href='/css/foundation.min.css')
+      link(rel='stylesheet', href='/css/foundation-icons.css')
+      link(rel='stylesheet', href='/css/normalize.css')
+      link(rel='stylesheet', href='/css/main.css')
+  body(class=bodyclass)
+    nav.top-bar(data-topbar='')
+      ul.title-area
+        li.name
+          h1
+            a(href='/')
+              img(src='/img/logo.png',style='width:38px;')
+        li.toggle-topbar.menu-icon
+          a(href='#') Menu
+      section.top-bar-section
+        ul.right
+          li.divider
+          li
+            a(href='/')
+              i.fi-home(style='padding-left:15px; padding-right:10px;')  Home
+          li.divider
+          li
+            a(href='/blog.html')
+              i.fi-book(style='padding-left:15px; padding-right:10px;')  Blog
+          li.divider
+          li
+            a(href='/about.html')
+              i.fi-torso-business(style='padding-left:15px; padding-right:10px;')  About
+    div#content
+      div.content-wrap
+        block content
+    footer
+      div.content-wrap
+        block footer
+          section.copy
+            p &copy; #{ new Date().getFullYear() } weak.io
+  script(type='text/javascript',src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+  script(type='text/javascript',src='/js/foundation.min.js')

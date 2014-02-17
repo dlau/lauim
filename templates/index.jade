@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    div.hero
+      .row
+        .small-4.columns.right.info-unit
+          p Creating Web Solutions
+          a.button.radius.empty(href='/about') More
+    .row.container
+      ul.small-block-grid-3
+        each article in articles
+          li
+            .grid-inner
+              article.article.intro
+                header
+                  p.date
+                    span= moment.utc(article.date).format('DD. MMMM YYYY')
+                  h3
+                    a(href=article.url)= article.title
+                section.content
+                  | !{ typogr(article.intro).typogrify() }
+                  if article.hasMore
+                    p.more
+                      a(href=article.url) more
+    .row.container
+      a(href='/blog') See all blog entries
+    //-header.header
+      //-div.content-wrap
+        //-block header
+          //-div.logo
+            //-h1
+              //-a(href=locals.url)= locals.name
+            //-p.description= locals.description
+  //-include author
+  //-each article in articles
+    //-article.article.intro
+      //-header
+        //-p.date
+          //-span= moment.utc(article.date).format('DD. MMMM YYYY')
+        //-h2
+          //-a(href=article.url)= article.title
+      //-section.content
+        //-| !{ typogr(article.intro).typogrify() }
+        //-if article.hasMore
+          //-p.more
+            //-a(href=article.url) more
+
+
