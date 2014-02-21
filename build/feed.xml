@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>The Wintersmith's blog</title>
-    <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
-    <link>http://localhost:8080</link>
-    <description>Ramblings of an immor(t)al demigod</description>
+    <title>weak.io</title>
+    <atom:link href="http://weak.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://weak.io</link>
+    <description></description>
     <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
       <title>Welcome!</title>
-      <link>http://localhost:8080/articles/welcome/</link>
+      <link>http://weak.io/articles/welcome/</link>
       <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/welcome/</guid>
+      <guid isPermaLink="true">http://weak.io/articles/welcome/</guid>
       <author></author>
       <description>&lt;p&gt;All ongoing projects and blog posts will be migrated to the &lt;a href=&quot;http://weak.io/&quot;&gt;weak.io&lt;/a&gt; domain from now on.&lt;/p&gt;
 &lt;p&gt;Keep an eye out for more updates!&lt;/p&gt;
@@ -20,9 +20,9 @@
     </item>
     <item>
       <title>Burg Map Editor is live!</title>
-      <link>http://localhost:8080/articles/burg-map-editor-is-live/</link>
+      <link>http://weak.io/articles/burg-map-editor-is-live/</link>
       <pubDate>Sun, 13 Oct 2013 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/burg-map-editor-is-live/</guid>
+      <guid isPermaLink="true">http://weak.io/articles/burg-map-editor-is-live/</guid>
       <author></author>
       <description>&lt;p&gt;Greetings to the ever growing readers! Today I would like to introduce the Burg Map Editor that went live yesterday.&lt;/p&gt;
 &lt;hr&gt;
@@ -33,17 +33,17 @@
 &lt;/blockquote&gt;
 &lt;p&gt;You may have noticed a new addition to the site, a little lightning bolt on the right side. This provides the powerful user functionality&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://localhost:8080/articles/burg-map-editor-is-live/0.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/0.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 &lt;p&gt;To start, log in either by creating an account or using a pre-existing identity. I myself use my Google account, I have enough passwords as is!&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://localhost:8080/articles/burg-map-editor-is-live/1.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/1.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Once you’re logged in, click on the lightning bolt again, and it should have an option to edit now!&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://localhost:8080/articles/burg-map-editor-is-live/2.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/2.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Now you can search for something to get your bearings, then add it!
@@ -51,8 +51,8 @@ Bouchard Père &amp;amp; Fils have documented their vineyards quite well, so let
 &lt;p&gt; Here I am adding their Meursault “Le Porusot” vineyard, the kmz file is here:
 &lt;code&gt;http://www.bouchard-pereetfils.com/google/maj/MTIPOM_01_B1ST_G_ES.kmz&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://localhost:8080/articles/burg-map-editor-is-live/3.png&quot; alt=&quot;&quot;&gt;
-    &lt;img src=&quot;http://localhost:8080/articles/burg-map-editor-is-live/4.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/3.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/4.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 
@@ -69,7 +69,7 @@ When you’re done, click submit and it should show your change, which is pendin
 &lt;/ul&gt;
 &lt;p&gt;Let’s fix that and add a region inside of Fremiets, accordingly:&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://localhost:8080/articles/burg-map-editor-is-live/5.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/5.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Done! Hope that was painless. More coming soon, keep one eye open! I’m still new to this blogging thing, hope to make regular posts!&lt;/p&gt;
@@ -77,31 +77,31 @@ When you’re done, click submit and it should show your change, which is pendin
     </item>
     <item>
       <title>Introducing Burg Map</title>
-      <link>http://localhost:8080/articles/introducing-burg-map/</link>
+      <link>http://weak.io/articles/introducing-burg-map/</link>
       <pubDate>Mon, 30 Sep 2013 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://localhost:8080/articles/introducing-burg-map/</guid>
+      <guid isPermaLink="true">http://weak.io/articles/introducing-burg-map/</guid>
       <author></author>
       <description>&lt;p&gt;Today we would like to introduce Burg Map.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;burgundy-first&quot;&gt;Burgundy first&lt;/h2&gt;
 &lt;p&gt;Get really good at Burgundy first. A world map can support all the worlds’ regions eventually.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://localhost:8080/articles/introducing-burg-map/0.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/0.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;fully-interactive-map&quot;&gt;Fully interactive map&lt;/h2&gt;
 &lt;p&gt;Approach the vast world of wine, visually, through a fully interactive experience, any region can be clicked for additional information.&lt;/p&gt;
 &lt;p&gt;Regions are divided into their natural organization.&lt;/p&gt;
 &lt;p&gt;For example, Burgundy with &lt;code&gt;Grand Cru&lt;/code&gt; &lt;code&gt;Premier Cru&lt;/code&gt; and &lt;code&gt;Village&lt;/code&gt; designations or Bordeaux wines with their &lt;code&gt;First Growths (Premiers Crus)&lt;/code&gt; &lt;code&gt;Second Growths (Deuxièmes Crus)&lt;/code&gt; &lt;code&gt;Third Growths (Troisièmes Crus)&lt;/code&gt; &lt;code&gt;Fourth Growths (Quatrièmes Crus)&lt;/code&gt; &lt;code&gt;Fifth Growths (Cinquièmes Crus)&lt;/code&gt; designations.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://localhost:8080/articles/introducing-burg-map/1.png&quot; alt=&quot;Fully interactive map tiles&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/1.png&quot; alt=&quot;Fully interactive map tiles&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;search-functionality&quot;&gt;Search functionality&lt;/h2&gt;
 &lt;p&gt;Searching for a region name brings you directly to the information&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://localhost:8080/articles/introducing-burg-map/2.png&quot; alt=&quot;Search functionality&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/2.png&quot; alt=&quot;Search functionality&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;community-based-wiki-style-articles&quot;&gt;Community based wiki-style articles&lt;/h2&gt;
 &lt;p&gt;For more information, a wiki style article system allows users to drill down to the specifics about each wine growing region. We are using Wikipedia articles as a base. All articles are licensed under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This community-based system is integral to keeping up with the times—so to say. More on this at the end of the post.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://localhost:8080/articles/introducing-burg-map/3.png&quot; alt=&quot;Wiki style editing&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/3.png&quot; alt=&quot;Wiki style editing&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;edit-articles-easily-in-markdown-syntax&quot;&gt;Edit articles easily in markdown syntax&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;http://localhost:8080/articles/introducing-burg-map/4.png&quot; alt=&quot;Markdown editing&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/4.png&quot; alt=&quot;Markdown editing&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;imagery-with-mapbox-satellite-http-mapbox-com-&quot;&gt;Imagery with &lt;a href=&quot;http://mapbox.com/&quot;&gt;MapBox Satellite&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;http://localhost:8080/articles/introducing-burg-map/5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;a-lot-more-to-do&quot;&gt;A lot more to do&lt;/h2&gt;
 &lt;p&gt;This post outlines some basic functionality that is included in our first public release. There are, however, many must-have features before making this public and available.&lt;/p&gt;
 &lt;h3 id=&quot;parcel-editor-&quot;&gt;Parcel Editor:&lt;/h3&gt;
