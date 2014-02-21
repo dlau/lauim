@@ -32,7 +32,8 @@ body {
 
 .button.empty{
   background: none;
-  border : 1px solid #00c6a9;
+  /*border : 1px solid #00c6a9;*/
+  border : 1px solid #fff;
   margin-top : 5px;
 }
 
