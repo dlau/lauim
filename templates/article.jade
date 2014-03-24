@@ -9,17 +9,15 @@ block prepend title
 
 
 block content
-  .container
-    include author
-    h1= page.title
-    p.author
-      | #{ "Written by " }
-      mixin author(page.metadata.author)
-  .container
-    article.article
-      section.content!= typogr(page.html).typogrify()
-  .container
-    a(href='/blog.html')
-      span.label.round « All blog entries
+  include author
+  h1= page.title
+  p.author
+    | #{ "Written by " }
+    mixin author(page.metadata.author)
+  article.article
+    section.content!= typogr(page.html).typogrify()
+  a(href='/blog.html')
+    a(href='/')
+      .btn.btn-default « All blog entries
 
 
