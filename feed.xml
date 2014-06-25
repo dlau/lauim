@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>weak.io</title>
+    <atom:link href="http://weak.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://weak.io</link>
+    <description></description>
+    <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
+    <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
+    <language>en</language>
+    <item>
+      <title>Welcome!</title>
+      <link>http://weak.io/articles/welcome/</link>
+      <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
+      <guid isPermaLink="true">http://weak.io/articles/welcome/</guid>
+      <author></author>
+      <description>&lt;p&gt;All ongoing projects and blog posts will be migrated to the &lt;a href=&quot;http://weak.io/&quot;&gt;weak.io&lt;/a&gt; domain from now on.&lt;/p&gt;
+&lt;p&gt;Keep an eye out for more updates!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Burg Map Editor is live!</title>
+      <link>http://weak.io/articles/burg-map-editor-is-live/</link>
+      <pubDate>Sun, 13 Oct 2013 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://weak.io/articles/burg-map-editor-is-live/</guid>
+      <author></author>
+      <description>&lt;p&gt;Greetings to the ever growing readers! Today I would like to introduce the Burg Map Editor that went live yesterday.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;a-few-notes-to-the-foreign-audience-&quot;&gt;A few notes to the foreign audience.&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Pour mes amis francophones, je suis desolé, maintenant je n ai pas les ressources de faire une traduction en Français. Je le ferai quand je réaliserais le website. Mon français n est pas très bon, donc il est possible qu’il soit difficile. Remercions de votre patience.&lt;/p&gt;
+&lt;p&gt;中國台灣同志好。現在這個Website Burg Map只有英文的版本。等大部份英文Website做好的時候 就開始翻譯到中文傳統。 完成後，簡化中文不會太難。 謝謝寧的耐心&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You may have noticed a new addition to the site, a little lightning bolt on the right side. This provides the powerful user functionality&lt;/p&gt;
+&lt;div class=&quot;centered&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/0.png&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To start, log in either by creating an account or using a pre-existing identity. I myself use my Google account, I have enough passwords as is!&lt;/p&gt;
+&lt;div class=&quot;centered&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/1.png&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once you’re logged in, click on the lightning bolt again, and it should have an option to edit now!&lt;/p&gt;
+&lt;div class=&quot;centered&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/2.png&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now you can search for something to get your bearings, then add it!
+Bouchard Père &amp;amp; Fils have documented their vineyards quite well, so let’s use one of those as an example&lt;/p&gt;
+&lt;p&gt; Here I am adding their Meursault “Le Porusot” vineyard, the kmz file is here:
+&lt;code&gt;http://www.bouchard-pereetfils.com/google/maj/MTIPOM_01_B1ST_G_ES.kmz&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;centered&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/3.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/4.png&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;It is as simple as drawing a polygon and editing the details. Currently parcels and general wine growing regions are supported.
+When you’re done, click submit and it should show your change, which is pending for review. All submissions are screened by a human (me right now!) and won’t be added to the main map until they are processed.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h2 id=&quot;oops-&quot;&gt;Oops!!&lt;/h2&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I was browsing around on the Bouchard Père &amp;amp;fils website, and noticed that there was a sub-region missing on the map! Oh no!&lt;/p&gt;
+&lt;p&gt;After further research, it would seem that there are two Clos de la Rougeotte appellations in Volnay:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One Volnay-Fremiets-Clos de la Rougeotte&lt;/li&gt;
+&lt;li&gt;Another that is simple Volnay-Clos de la Rougeotte, the one inside of Fremiets being a monopole for Bouchard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let’s fix that and add a region inside of Fremiets, accordingly:&lt;/p&gt;
+&lt;div class=&quot;centered&quot;&gt;
+    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/5.png&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Done! Hope that was painless. More coming soon, keep one eye open! I’m still new to this blogging thing, hope to make regular posts!&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Introducing Burg Map</title>
+      <link>http://weak.io/articles/introducing-burg-map/</link>
+      <pubDate>Mon, 30 Sep 2013 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://weak.io/articles/introducing-burg-map/</guid>
+      <author></author>
+      <description>&lt;p&gt;Today we would like to introduce Burg Map.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;burgundy-first&quot;&gt;Burgundy first&lt;/h2&gt;
+&lt;p&gt;Get really good at Burgundy first. A world map can support all the worlds’ regions eventually.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/0.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;fully-interactive-map&quot;&gt;Fully interactive map&lt;/h2&gt;
+&lt;p&gt;Approach the vast world of wine, visually, through a fully interactive experience, any region can be clicked for additional information.&lt;/p&gt;
+&lt;p&gt;Regions are divided into their natural organization.&lt;/p&gt;
+&lt;p&gt;For example, Burgundy with &lt;code&gt;Grand Cru&lt;/code&gt; &lt;code&gt;Premier Cru&lt;/code&gt; and &lt;code&gt;Village&lt;/code&gt; designations or Bordeaux wines with their &lt;code&gt;First Growths (Premiers Crus)&lt;/code&gt; &lt;code&gt;Second Growths (Deuxièmes Crus)&lt;/code&gt; &lt;code&gt;Third Growths (Troisièmes Crus)&lt;/code&gt; &lt;code&gt;Fourth Growths (Quatrièmes Crus)&lt;/code&gt; &lt;code&gt;Fifth Growths (Cinquièmes Crus)&lt;/code&gt; designations.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/1.png&quot; alt=&quot;Fully interactive map tiles&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;search-functionality&quot;&gt;Search functionality&lt;/h2&gt;
+&lt;p&gt;Searching for a region name brings you directly to the information&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/2.png&quot; alt=&quot;Search functionality&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;community-based-wiki-style-articles&quot;&gt;Community based wiki-style articles&lt;/h2&gt;
+&lt;p&gt;For more information, a wiki style article system allows users to drill down to the specifics about each wine growing region. We are using Wikipedia articles as a base. All articles are licensed under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This community-based system is integral to keeping up with the times—so to say. More on this at the end of the post.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/3.png&quot; alt=&quot;Wiki style editing&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;edit-articles-easily-in-markdown-syntax&quot;&gt;Edit articles easily in markdown syntax&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/4.png&quot; alt=&quot;Markdown editing&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;imagery-with-mapbox-satellite-http-mapbox-com-&quot;&gt;Imagery with &lt;a href=&quot;http://mapbox.com/&quot;&gt;MapBox Satellite&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;a-lot-more-to-do&quot;&gt;A lot more to do&lt;/h2&gt;
+&lt;p&gt;This post outlines some basic functionality that is included in our first public release. There are, however, many must-have features before making this public and available.&lt;/p&gt;
+&lt;h3 id=&quot;parcel-editor-&quot;&gt;Parcel Editor:&lt;/h3&gt;
+&lt;p&gt;Currently, there is support of region-level editing. Down to certain administrative levels, the information is freely available. Unfortunately, at the commune level and more certainly at the parcel level, this does not seem to be the case. This is further complicated by fact that we will limit the satellite zoom level to 12 in our editor because of issues with derived works, you can read more about that &lt;a href=&quot;http://www.mapbox.com/tos/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Regarding tagging a parcel to a specific producer - The solution, at the current time, is to map out every parcel for the user, so they can click on the parcel and assign&lt;/p&gt;
+&lt;h3 id=&quot;time-based-data-&quot;&gt;Time based data:&lt;/h3&gt;
+&lt;p&gt;Things change, plots of land switch hands, regions are renamed, producers retire and their children take over. A recent example would be the Clos Frantin -&amp;gt; Clos Eugenie. This is one of the biggest sources of confusion when it comes to French wines. One of our goals is to demystify these transitions&lt;/p&gt;
+&lt;h3 id=&quot;simplicity&quot;&gt;Simplicity&lt;/h3&gt;
+&lt;p&gt;While the user can drill down to the fine details about who owns what parcel of land, the bottom line is that we’re all very busy. While geeking out over these things can be interesting, most of us would rather be partaking in activities such as eating and drinking!&lt;/p&gt;
+&lt;h3 id=&quot;focused-on-facts&quot;&gt;Focused on facts&lt;/h3&gt;
+&lt;p&gt;No scores? This is a bit up in the air, but in this day and age, scores seem to be doing more harm than good. Let’s revisit how we discover wine.&lt;/p&gt;
+&lt;h3 id=&quot;premium-freemium-&quot;&gt;Premium, Freemium?&lt;/h3&gt;
+&lt;p&gt;The map hosting as well as systems to serve up this resource may get very costly. Rest assured, we will never limit access to information through some sort of premium model.&lt;/p&gt;
+&lt;p&gt;At least for now, the only avenue for any revenue is from the iPad application. It will provide 100% free access to the maps when online, but users will have to purchase a package to download and browse without an Internet connection. I really can’t think of any other non-intrusive way to go about this. Of course, there is the traditional method of advertising, but that can trigger a slippery slope, as we strive to be as unbiased as possible.&lt;/p&gt;
+&lt;h3 id=&quot;few-more-things&quot;&gt;Few more things&lt;/h3&gt;
+&lt;p&gt;I haven’t touched on producers, as well as a few more topics. Watch for a subsequent blog post outlining those.&lt;/p&gt;
+&lt;p&gt;Please contact me with any suggestions or bugs!&lt;/p&gt;
+&lt;h2 id=&quot;many-thanks-to-&quot;&gt;Many thanks to…&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt; for their front-end mapping library&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://mapbox.com/&quot;&gt;Mapbox&lt;/a&gt; for their map hosting, especially their amazing aerial imagery&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://wikipedia.org/&quot;&gt;Wikipedia&lt;/a&gt; and its contributors for their permissive licensing policy&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://twitter.github.io/bootstrap&quot;&gt;Bootstrap&lt;/a&gt; for being awesome&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://epiceditor.com/&quot;&gt;Epiceditor&lt;/a&gt; for the markdown editor&lt;/p&gt;
+&lt;p&gt;And countless others that I have surely missed&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>
