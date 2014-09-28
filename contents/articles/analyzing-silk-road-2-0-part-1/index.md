@@ -222,6 +222,9 @@ sqlite> SELECT COUNT(*) FROM silkroad_data;
 >It was really creepy looking through all those drug listings, with rocks of all sorts of shapes and colors. I spent way too much time writing this article, hope someone finds it educational.
 
 
+####If you liked this
+>I'll be posting some anonymized data extracts to [github](https://github.com/dlau). Some follow up articles will come if there is any interest.
+
 ###To be continued ...
 ---
 >Part 1 gave us an overall, albeit superficial view of the numbers behind SR 2.0.
