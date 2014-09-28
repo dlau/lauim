@@ -4,7 +4,8 @@
 
 body{
   background-color: #ccc;
-  font-family: "Lusitana", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: courier, monospace;
+  font-size: 12pt;
 }
 
 .container{

@@ -1,18 +1,252 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>weak.io</title>
-    <atom:link href="http://weak.io/feed.xml" rel="self" type="application/rss+xml"></atom:link>
-    <link>http://weak.io</link>
+    <title>lau.im</title>
+    <atom:link href="http://lau.im/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://lau.im</link>
     <description></description>
-    <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
+    <pubDate>Fri, 26 Sep 2014 17:00:00 -0700</pubDate>
     <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
     <language>en</language>
     <item>
+      <title>Analyzing Trends in the Silk Road 2.0</title>
+      <link>http://lau.im/articles/analyzing-silk-road-2-0-part-1/</link>
+      <pubDate>Fri, 26 Sep 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://lau.im/articles/analyzing-silk-road-2-0-part-1/</guid>
+      <author></author>
+      <description>&lt;div style=&quot;text-align:center;&quot;&gt;
+    &lt;img src=&quot;http://lau.im/articles/analyzing-silk-road-2-0-part-1/breakingbad.jpg&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;impetus&quot;&gt;Impetus&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;Last Friday, one of the top articles on &lt;a href=&quot;http://news.ycombinator.com/&quot;&gt;hacker news&lt;/a&gt; was called &lt;a href=&quot;https://github.com/mieko/sr-captcha&quot;&gt;Breaking the Silk Road’s Captcha&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This sounded pretty cool to me, though not necessarily applicable because the current Silk Road 2.0 (I’ll just be calling it SR from now on) isn’t using anything nearly as sophisticated.&lt;/p&gt;
+&lt;p&gt;I thought it would be really interesting to scrape SR for, let’s say a month or two. I could do cool stuff like make a stock ticker and display the values like &lt;code&gt;COK&lt;/code&gt; &lt;code&gt;XTC&lt;/code&gt; &lt;code&gt;LSD&lt;/code&gt; etc.&lt;/p&gt;
+&lt;h2 id=&quot;disclaimer&quot;&gt;Disclaimer&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;The following information is for educational purposes only, I have no affiliation with the Silk Road 2.0, nor have I ever purchased anything off the site. As far as I know, visiting the site and writing about it with no intention to buy (commit a crime) is perfectly legal.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;some-implementation-quirks&quot;&gt;Some implementation quirks&lt;/h2&gt;
+&lt;hr&gt;
+&lt;div style=&quot;text-align:center;&quot;&gt;
+    &lt;img src=&quot;http://lau.im/articles/analyzing-silk-road-2-0-part-1/captchafailure.jpg&quot; alt=&quot;&quot;&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br/&gt;
+&lt;strong&gt;Before we begin:&lt;/strong&gt; I only wanted to spend an hour or two doing this. I was late for a dinner and wanted it to run overnight while I was sleeping. If you are looking to build a robust system, you should consider a different solution.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Captcha&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Simply download the captcha, run it through some opencv transforms, then feed it to tesseract. If it doesn’t work, just keep on trying until we can get a relatively easy one. I think my sucess rate was &amp;gt;90% with some very tranforms using opencv.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Connecting through tor&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The SR site is an &lt;a href=&quot;http://en.wikipedia.org/wiki/.onion&quot;&gt;anonymous hidden service&lt;/a&gt; reachable only through the tor network. You run the tor client daemon on your machine, then use it as a SOCKS5 proxy.&lt;/p&gt;
+&lt;p&gt;This has some complications, because dns requests also have to go through tor.&lt;/p&gt;
+&lt;p&gt;The quick and dirty solution is to just spawn the scraper through &lt;a href=&quot;https://gitweb.torproject.org/torsocks.git&quot;&gt;torsocks&lt;/a&gt; which wraps all the net requests from my scraper.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Automatic logouts/timeouts&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The SR site seems to be very eager to automatically log out users. When logged out, I simply create a new user. When I am back on the site, I make sure to traverse to the last known point from the root node of our crawl tree. This is to avoid detection.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;The nature of web crawling through tor:&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Crawling through tor already obfuscates your identity to a certain degree, so we don’t really have to do anything other than cycling &lt;code&gt;User-Agent&lt;/code&gt; strings to look different from any other client.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;findings&quot;&gt;Findings&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;Alright enough technical details, let’s see what useful information we can get out of this.&lt;/p&gt;
+&lt;p&gt;Knowing very little about recreational drug use, I visited the &lt;a href=&quot;http://www.drugabuse.gov/drugs-abuse/commonly-abused-drugs/commonly-abused-drugs-chart&quot;&gt;National Institute of Drug Abuse’s website&lt;/a&gt; which conveniently provided the names of, what the US considers, to be the most widely used drugs.&lt;/p&gt;
+&lt;p&gt;I thought, if I know them, they must be a big deal right?! I guess so. Here are the drugs I picked out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Cocaine&quot;&gt;Cocaine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Heroin&quot;&gt;Heroin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Opium&quot;&gt;Opium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Amphetamine&quot;&gt;Amphetamine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/MDMA&quot;&gt;Mdma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Ketamine&quot;&gt;Ketamine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Mescaline&quot;&gt;Mescaline&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Lysergic_acid_diethylamide&quot;&gt;LSD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Cannabis&quot;&gt;Weed&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;total-number-of-listings&quot;&gt;Total number of listings&lt;/h3&gt;
+&lt;hr&gt;
+&lt;object type=&quot;image/svg+xml&quot; data=&quot;total_listings_by_drug.svg&quot;&gt;Your browser does not support SVG&lt;/object&gt;
+
+&lt;pre&gt;&lt;code class=&quot;lang-md&quot;&gt;Sorted by number of listings
+----------------------------
+MDMA        1321
+Weed        761
+LSD         523
+Cocaine     475
+Amphetamine 215
+Heroin      150
+Ketamine    67
+Opium       53
+Mescaline   20
+Total       3585
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;weed is simply marijuana that is smoked, not any other derivative such as hash&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To put things in perspective, at the moment of writing this SR has approximately 13,000 listings for drugs. Just a guess, but it looks like prescription drugs account for a large portion of SR drug listings.&lt;/p&gt;
+&lt;p&gt;Nothing much to say here, other than the fact that MDMA seems to have the most listings.&lt;/p&gt;
+&lt;h3 id=&quot;highest-number-of-ratings&quot;&gt;Highest number of ratings&lt;/h3&gt;
+&lt;hr&gt;
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-lg-6&quot;&gt;
+        &lt;object type=&quot;image/svg+xml&quot; data=&quot;ratings_by_drug.svg&quot;&gt;Your browser does not support SVG&lt;/object&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-lg-6&quot;&gt;
+        &lt;object type=&quot;image/svg+xml&quot; data=&quot;ratings_by_drug_div.svg&quot;&gt;Your browser does not support SVG&lt;/object&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Just like buying off Amazon, users can review the specific product. SR gives a rating from 1-5 stars and the total number of reviews per product listing.&lt;/p&gt;
+&lt;p&gt;The average number of ratings per product as shown here seem to be rather uniform, there is on average 29 reviews per product.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-md&quot;&gt;MDMA           33822    25
+Weed           28213    37
+LSD            12122    23
+Cocaine        16591    34
+Amphetamine    6251     29
+Heroin         3132     20
+Ketamine       1504     22
+Opium          1256     23
+Mescaline      62       3
+
+Total          102953
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;top-100-most-reviewed-items&quot;&gt;Top 100 Most Reviewed Items&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;MDMA          48
+Weed          22
+LSD           10
+Cocaine       9
+Amphetamine   7
+Ketamine      1
+Opium         1
+Mescaline     1
+Heroin        1&lt;/p&gt;
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-lg-6&quot;&gt;
+        &lt;object type=&quot;image/svg+xml&quot; data=&quot;top100_prices.svg&quot;&gt;Your browser does not support SVG&lt;/object&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-lg-6&quot;&gt;
+        &lt;object type=&quot;image/svg+xml&quot; data=&quot;top100_prices_removed_outliers.svg&quot;&gt;Your browser does not support SVG&lt;/object&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In case you are wondering, there were some outliers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;One had &lt;strong&gt;100g of MDMA for $1510.77&lt;/strong&gt;. &lt;strong&gt;It had 392 ratings.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Another was selling &lt;strong&gt;100g of mdma for $1186&lt;/strong&gt; and &lt;strong&gt;50g for $659&lt;/strong&gt;. They had &lt;strong&gt;293 ratings&lt;/strong&gt; and &lt;em&gt;*279 ratings&lt;/em&gt; respectively.&lt;/li&gt;
+&lt;li&gt;The other was for &lt;strong&gt;1/4lb of bulk medical marijuana for $619.10&lt;/strong&gt;. &lt;strong&gt;It had 378 ratings.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I somehow doubt this guy has sold half a million dollars worth of MDMA at $1.5k a pop in such a huge quantity, but the price seems to be in line with other sellers for an equivalent amount. &lt;strong&gt;I’m not entirely sure what the rules are regarding who can give feedback, but there seem to be people buying huge quantites if a user must buy a product to be able to review it. I have never purchased anything from the site, and I wasn’t presented with any choices to review an item.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If only people who purchase the item can review it, then I am a bit less skeptical. I saw one canadian seller listing 1 kilo of MDMA for USD $8k with 1 review!&lt;/p&gt;
+&lt;p&gt;========================================================&lt;/p&gt;
+&lt;h4 id=&quot;the-average-price-of-the-top-100-items-is-129-&quot;&gt;The average price of the top 100 items is &lt;code&gt;$129&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;the-average-price-of-the-top-500-items-is-188-&quot;&gt;The average price of the top 500 items is &lt;code&gt;$188&lt;/code&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;the-average-price-of-the-top-1000-items-is-236-&quot;&gt;The average price of the top 1000 items is &lt;code&gt;$236&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;Prices are converted to USD at time of crawl using exchange rates from the coinbase api.&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;countries&quot;&gt;Countries&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;Sellers on SR can specify where they ship from and where they ship to.&lt;/p&gt;
+&lt;object type=&quot;image/svg+xml&quot; data=&quot;sellers_by_country.svg&quot;&gt;Your browser does not support SVG&lt;/object&gt;
+
+&lt;pre&gt;&lt;code class=&quot;lang-md&quot;&gt;isocode number of listings
+--------------------------------
+us   93
+au   45
+gb   40
+de   39
+nl   35
+ca   32
+se   10
+cn   6
+za   4
+be   4
+it   2
+es   2
+nz   2
+no   2
+ie   2
+pl   2
+dk   2
+sk   1
+cz   1
+fi   1
+fr   1
+ch   1
+at   1
+in   1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;observations&quot;&gt;Observations&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;total-sales-volume&quot;&gt;Total Sales Volume&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If, indeed every sale can map to a transaction, some vendors are doing huge amounts of business through mail order drugs. While the number is small, &lt;strong&gt;if we sum up all the product reviews x product prices, we get a huge number of &lt;code&gt;USD $20,668,330.05&lt;/code&gt;.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;REMEMBER! This is on Silk Road 2.0 with a very small subset of their entire inventory.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;sqlite&amp;gt; SELECT SUM(review_count * price_usd) FROM silkroad_data WHERE review_count &amp;gt; 0;
+20668330.0569627
+sqlite&amp;gt; SELECT COUNT(*) FROM silkroad_data;
+3579
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;comparing-to-agora&quot;&gt;Comparing to Agora&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The agora marketplace seems to have more or less the same number of listings. It would be interesting to see whether or not the sellers are the same or different between the sites.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;junk-listings&quot;&gt;Junk listings&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SR has quite a lot of junk listings, there are all sorts of listings unrelated to the product category. I had to filter out quite a lot of listings which deviated too far from the mean price per unit volume. The Agora Marketplace seems to be a bit better curated and moderated. I think suspect that it has more &lt;strong&gt;real&lt;/strong&gt; inventory than SR.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;closing&quot;&gt;Closing&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;i-won-t-tell-you-that-i-know-what-i-m-doing&quot;&gt;I won’t tell you that I know what I’m doing&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This is simply a collection of observations from someone who knows pretty much nothing about the drug world. It is probably among the longest articles I have ever written, any suggestions with regard to writing would be greatly appreciated. It must have taken me at least 3 times the amount of time to write this article versus getting all the data!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;need-more-data&quot;&gt;Need more data&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I’ve set up a cron-type job to crawl SR daily and crunch some numbers. It will be interesting to see how things change over time, though a month may not be enough time to see any significant shifts. I will release the source code for the crawler when I am done, with the SR specific portions removed if anyone is interested. I’ll also set something up to gather data from Agora.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;this-was-a-bit-much-for-me&quot;&gt;This was a bit much for me&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It was really creepy looking through all those drug listings, with rocks of all sorts of shapes and colors. I spent way too much time writing this article, hope someone finds it educational.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;to-be-continued-&quot;&gt;To be continued …&lt;/h3&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Part 1 gave us an overall, albeit superficial view of the numbers behind SR 2.0.&lt;/p&gt;
+&lt;p&gt;Part 2 will focus on pricing, trends and predictions.&lt;/p&gt;
+&lt;p&gt;In the last part of the series, I will report on changes over time.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    <item>
+      <title>Mineye, a reverse image search engine</title>
+      <link>http://lau.im/articles/mineye-a-reverse-image-search-engine/</link>
+      <pubDate>Tue, 22 Apr 2014 17:00:00 -0700</pubDate>
+      <guid isPermaLink="true">http://lau.im/articles/mineye-a-reverse-image-search-engine/</guid>
+      <author></author>
+      <description>&lt;p&gt;Been experimenting a bit with generic object detection and similarity matching using just public libraries, the result can be found here:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/dlau/mineye&quot;&gt;github link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/86fffc11c105ef55de202c7db53cec535bb5ee4c/687474703a2f2f692e6375626575706c6f61642e636f6d2f386e566a644f2e676966&quot; alt=&quot;animation&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I’ll write up a more detailed description soon, but the idea is simple.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A user uploads an image&lt;/li&gt;
+&lt;li&gt;Analyze the image and stick everything into a gigantic matrix. This matrix is just a concatenation of descriptor vectors from our detector. In the project I’m using SURF, but you probably want to use something different, due to patent issues.&lt;/li&gt;
+&lt;li&gt;To look up similar images, do a nearest neighbor search on the mega matrix versus the descriptors of the image you are checking against. This “similarity” is calculated using lowe’s technique, (match[0].distance &amp;lt; .6*match[1].distance)&lt;ul&gt;
+&lt;li&gt;In practice, this kNN search is pretty slow, so we use &lt;a href=&quot;http://www.cs.ubc.ca/~mariusm/uploads/FLANN/manual.pdf&quot;&gt;FLANN&lt;/a&gt; to get an approximate nearest neighbor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;hope to revisit this in the future&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Welcome!</title>
-      <link>http://weak.io/articles/welcome/</link>
+      <link>http://lau.im/articles/welcome/</link>
       <pubDate>Sat, 15 Feb 2014 16:00:00 -0800</pubDate>
-      <guid isPermaLink="true">http://weak.io/articles/welcome/</guid>
+      <guid isPermaLink="true">http://lau.im/articles/welcome/</guid>
       <author></author>
       <description>&lt;p&gt;All ongoing projects and blog posts will be migrated to the &lt;a href=&quot;http://weak.io/&quot;&gt;weak.io&lt;/a&gt; domain from now on.&lt;/p&gt;
 &lt;p&gt;Keep an eye out for more updates!&lt;/p&gt;
@@ -20,9 +254,9 @@
     </item>
     <item>
       <title>Burg Map Editor is live!</title>
-      <link>http://weak.io/articles/burg-map-editor-is-live/</link>
+      <link>http://lau.im/articles/burg-map-editor-is-live/</link>
       <pubDate>Sun, 13 Oct 2013 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://weak.io/articles/burg-map-editor-is-live/</guid>
+      <guid isPermaLink="true">http://lau.im/articles/burg-map-editor-is-live/</guid>
       <author></author>
       <description>&lt;p&gt;Greetings to the ever growing readers! Today I would like to introduce the Burg Map Editor that went live yesterday.&lt;/p&gt;
 &lt;hr&gt;
@@ -33,17 +267,17 @@
 &lt;/blockquote&gt;
 &lt;p&gt;You may have noticed a new addition to the site, a little lightning bolt on the right side. This provides the powerful user functionality&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/0.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://lau.im/articles/burg-map-editor-is-live/0.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 &lt;p&gt;To start, log in either by creating an account or using a pre-existing identity. I myself use my Google account, I have enough passwords as is!&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/1.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://lau.im/articles/burg-map-editor-is-live/1.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Once you’re logged in, click on the lightning bolt again, and it should have an option to edit now!&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/2.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://lau.im/articles/burg-map-editor-is-live/2.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Now you can search for something to get your bearings, then add it!
@@ -51,8 +285,8 @@ Bouchard Père &amp;amp; Fils have documented their vineyards quite well, so let
 &lt;p&gt; Here I am adding their Meursault “Le Porusot” vineyard, the kmz file is here:
 &lt;code&gt;http://www.bouchard-pereetfils.com/google/maj/MTIPOM_01_B1ST_G_ES.kmz&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/3.png&quot; alt=&quot;&quot;&gt;
-    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/4.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://lau.im/articles/burg-map-editor-is-live/3.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://lau.im/articles/burg-map-editor-is-live/4.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 
@@ -69,7 +303,7 @@ When you’re done, click submit and it should show your change, which is pendin
 &lt;/ul&gt;
 &lt;p&gt;Let’s fix that and add a region inside of Fremiets, accordingly:&lt;/p&gt;
 &lt;div class=&quot;centered&quot;&gt;
-    &lt;img src=&quot;http://weak.io/articles/burg-map-editor-is-live/5.png&quot; alt=&quot;&quot;&gt;
+    &lt;img src=&quot;http://lau.im/articles/burg-map-editor-is-live/5.png&quot; alt=&quot;&quot;&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Done! Hope that was painless. More coming soon, keep one eye open! I’m still new to this blogging thing, hope to make regular posts!&lt;/p&gt;
@@ -77,31 +311,31 @@ When you’re done, click submit and it should show your change, which is pendin
     </item>
     <item>
       <title>Introducing Burg Map</title>
-      <link>http://weak.io/articles/introducing-burg-map/</link>
+      <link>http://lau.im/articles/introducing-burg-map/</link>
       <pubDate>Mon, 30 Sep 2013 17:00:00 -0700</pubDate>
-      <guid isPermaLink="true">http://weak.io/articles/introducing-burg-map/</guid>
+      <guid isPermaLink="true">http://lau.im/articles/introducing-burg-map/</guid>
       <author></author>
       <description>&lt;p&gt;Today we would like to introduce Burg Map.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;burgundy-first&quot;&gt;Burgundy first&lt;/h2&gt;
 &lt;p&gt;Get really good at Burgundy first. A world map can support all the worlds’ regions eventually.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/0.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://lau.im/articles/introducing-burg-map/0.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;fully-interactive-map&quot;&gt;Fully interactive map&lt;/h2&gt;
 &lt;p&gt;Approach the vast world of wine, visually, through a fully interactive experience, any region can be clicked for additional information.&lt;/p&gt;
 &lt;p&gt;Regions are divided into their natural organization.&lt;/p&gt;
 &lt;p&gt;For example, Burgundy with &lt;code&gt;Grand Cru&lt;/code&gt; &lt;code&gt;Premier Cru&lt;/code&gt; and &lt;code&gt;Village&lt;/code&gt; designations or Bordeaux wines with their &lt;code&gt;First Growths (Premiers Crus)&lt;/code&gt; &lt;code&gt;Second Growths (Deuxièmes Crus)&lt;/code&gt; &lt;code&gt;Third Growths (Troisièmes Crus)&lt;/code&gt; &lt;code&gt;Fourth Growths (Quatrièmes Crus)&lt;/code&gt; &lt;code&gt;Fifth Growths (Cinquièmes Crus)&lt;/code&gt; designations.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/1.png&quot; alt=&quot;Fully interactive map tiles&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://lau.im/articles/introducing-burg-map/1.png&quot; alt=&quot;Fully interactive map tiles&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;search-functionality&quot;&gt;Search functionality&lt;/h2&gt;
 &lt;p&gt;Searching for a region name brings you directly to the information&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/2.png&quot; alt=&quot;Search functionality&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://lau.im/articles/introducing-burg-map/2.png&quot; alt=&quot;Search functionality&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;community-based-wiki-style-articles&quot;&gt;Community based wiki-style articles&lt;/h2&gt;
 &lt;p&gt;For more information, a wiki style article system allows users to drill down to the specifics about each wine growing region. We are using Wikipedia articles as a base. All articles are licensed under the &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/&quot;&gt;Creative Commons Attribution 3.0 Unported License&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This community-based system is integral to keeping up with the times—so to say. More on this at the end of the post.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/3.png&quot; alt=&quot;Wiki style editing&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://lau.im/articles/introducing-burg-map/3.png&quot; alt=&quot;Wiki style editing&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;edit-articles-easily-in-markdown-syntax&quot;&gt;Edit articles easily in markdown syntax&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/4.png&quot; alt=&quot;Markdown editing&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://lau.im/articles/introducing-burg-map/4.png&quot; alt=&quot;Markdown editing&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;imagery-with-mapbox-satellite-http-mapbox-com-&quot;&gt;Imagery with &lt;a href=&quot;http://mapbox.com/&quot;&gt;MapBox Satellite&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;http://weak.io/articles/introducing-burg-map/5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://lau.im/articles/introducing-burg-map/5.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;a-lot-more-to-do&quot;&gt;A lot more to do&lt;/h2&gt;
 &lt;p&gt;This post outlines some basic functionality that is included in our first public release. There are, however, many must-have features before making this public and available.&lt;/p&gt;
 &lt;h3 id=&quot;parcel-editor-&quot;&gt;Parcel Editor:&lt;/h3&gt;

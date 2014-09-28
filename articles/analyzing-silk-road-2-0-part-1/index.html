@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Analyzing Trends in the Silk Road 2.0 - lau.im
+    </title>
+    <link rel="alternate" href="http://lau.im/feed.xml" type="application/rss+xml" title="">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/highlight.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div class="container container-content">
+      <div class="row">
+        <div class="col-12 col-lg-12">
+          <ul class="list-inline topnav">
+            <li><a href="/">Home</a>
+            </li>
+            <li><a href="/contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-12">
+          <div id="content">
+            <div class="content-wrap">
+              <h1>Analyzing Trends in the Silk Road 2.0</h1>
+              <p class="author">Written by <span class="author"><a href="mailto:daryl@lau.im">Daryl Lau</a></span>
+              </p>
+              <article class="article">
+                <section class="content"><div style="text-align:center;">
+    <img src="/articles/analyzing-silk-road-2-0-part-1/breakingbad.jpg" alt="">
+</div>
+
+<h2 id="impetus">Impetus</h2>
+<hr>
+<p>Last Friday, one of the top articles on <a href="http://news.ycombinator.com/">hacker news</a> was called <a href="https://github.com/mieko/sr-captcha">Breaking the Silk Road’s&nbsp;Captcha</a></p>
+<p>This sounded pretty cool to me, though not necessarily applicable because the current Silk Road 2.0 (I’ll just be calling it <span class="caps">SR</span> from now on) isn’t using anything nearly as&nbsp;sophisticated.</p>
+<p>I thought it would be really interesting to scrape <span class="caps">SR</span> for, let’s say a month or two. I could do cool stuff like make a stock ticker and display the values like <code>COK</code> <code>XTC</code> <code>LSD</code> etc.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<hr>
+<p><strong>The following information is for educational purposes only, I have no affiliation with the Silk Road 2.0, nor have I ever purchased anything off the site. As far as I know, visiting the site and writing about it with no intention to buy (commit a crime) is perfectly&nbsp;legal.</strong></p>
+<h2 id="some-implementation-quirks">Some implementation&nbsp;quirks</h2>
+<hr>
+<div style="text-align:center;">
+    <img src="/articles/analyzing-silk-road-2-0-part-1/captchafailure.jpg" alt="">
+</div>
+
+<p><br/>
+<strong>Before we begin:</strong> I only wanted to spend an hour or two doing this. I was late for a dinner and wanted it to run overnight while I was sleeping. If you are looking to build a robust system, you should consider a different&nbsp;solution.</p>
+<p><strong>Captcha</strong></p>
+<blockquote>
+<p>Simply download the captcha, run it through some opencv transforms, then feed it to tesseract. If it doesn’t work, just keep on trying until we can get a relatively easy one. I think my sucess rate was &gt;90% with some very tranforms using&nbsp;opencv.</p>
+</blockquote>
+<p><strong>Connecting through&nbsp;tor</strong></p>
+<blockquote>
+<p>The <span class="caps">SR</span> site is an <a href="http://en.wikipedia.org/wiki/.onion">anonymous hidden service</a> reachable only through the tor network. You run the tor client daemon on your machine, then use it as a <span class="caps">SOCKS5</span>&nbsp;proxy.</p>
+<p>This has some complications, because dns requests also have to go through&nbsp;tor.</p>
+<p>The quick and dirty solution is to just spawn the scraper through <a href="https://gitweb.torproject.org/torsocks.git">torsocks</a> which wraps all the net requests from my&nbsp;scraper.</p>
+</blockquote>
+<p><strong>Automatic&nbsp;logouts/timeouts</strong></p>
+<blockquote>
+<p>The <span class="caps">SR</span> site seems to be very eager to automatically log out users. When logged out, I simply create a new user. When I am back on the site, I make sure to traverse to the last known point from the root node of our crawl tree. This is to avoid&nbsp;detection.</p>
+</blockquote>
+<p><strong>The nature of web crawling through&nbsp;tor:</strong></p>
+<blockquote>
+<p>Crawling through tor already obfuscates your identity to a certain degree, so we don’t really have to do anything other than cycling <code>User-Agent</code> strings to look different from any other&nbsp;client.</p>
+</blockquote>
+<h2 id="findings">Findings</h2>
+<hr>
+<p>Alright enough technical details, let’s see what useful information we can get out of&nbsp;this.</p>
+<p>Knowing very little about recreational drug use, I visited the <a href="http://www.drugabuse.gov/drugs-abuse/commonly-abused-drugs/commonly-abused-drugs-chart">National Institute of Drug Abuse’s website</a> which conveniently provided the names of, what the <span class="caps">US</span> considers, to be the most widely used&nbsp;drugs.</p>
+<p>I thought, if I know them, they must be a big deal right?! I guess so. Here are the drugs I picked&nbsp;out:</p>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Cocaine">Cocaine</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Heroin">Heroin</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Opium">Opium</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Amphetamine">Amphetamine</a></li>
+<li><a href="http://en.wikipedia.org/wiki/MDMA">Mdma</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Ketamine">Ketamine</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Mescaline">Mescaline</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Lysergic_acid_diethylamide"><span class="caps">LSD</span></a></li>
+<li><a href="http://en.wikipedia.org/wiki/Cannabis">Weed</a></li>
+</ul>
+<h3 id="total-number-of-listings">Total number of&nbsp;listings</h3>
+<hr>
+<object type="image/svg+xml" data="total_listings_by_drug.svg">Your browser does not support <span class="caps">SVG</span></object>
+
+<pre><code class="lang-md">Sorted by number of listings
+----------------------------
+MDMA        1321
+Weed        761
+LSD         523
+Cocaine     475
+Amphetamine 215
+Heroin      150
+Ketamine    67
+Opium       53
+Mescaline   20
+Total       3585
+</code></pre>
+<p><code>weed is simply marijuana that is smoked, not any other derivative such as hash</code></p>
+<p>To put things in perspective, at the moment of writing this <span class="caps">SR</span> has approximately 13,000 listings for drugs. Just a guess, but it looks like prescription drugs account for a large portion of SR drug&nbsp;listings.</p>
+<p>Nothing much to say here, other than the fact that <span class="caps">MDMA</span> seems to have the most&nbsp;listings.</p>
+<h3 id="highest-number-of-ratings">Highest number of&nbsp;ratings</h3>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <object type="image/svg+xml" data="ratings_by_drug.svg">Your browser does not support <span class="caps">SVG</span></object>
+    </div>
+    <div class="col-lg-6">
+        <object type="image/svg+xml" data="ratings_by_drug_div.svg">Your browser does not support <span class="caps">SVG</span></object>
+    </div>
+</div>
+
+<p>Just like buying off Amazon, users can review the specific product. <span class="caps">SR</span> gives a rating from 1-5 stars and the total number of reviews per product&nbsp;listing.</p>
+<p>The average number of ratings per product as shown here seem to be rather uniform, there is on average 29 reviews per&nbsp;product.</p>
+<pre><code class="lang-md">MDMA           33822    25
+Weed           28213    37
+LSD            12122    23
+Cocaine        16591    34
+Amphetamine    6251     29
+Heroin         3132     20
+Ketamine       1504     22
+Opium          1256     23
+Mescaline      62       3
+
+Total          102953
+</code></pre>
+<h3 id="top-100-most-reviewed-items">Top 100 Most Reviewed&nbsp;Items</h3>
+<hr>
+<p><span class="caps">MDMA</span>          48
+Weed          22
+LSD           10
+Cocaine       9
+Amphetamine   7
+Ketamine      1
+Opium         1
+Mescaline     1
+Heroin&nbsp;1</p>
+<div class="row">
+    <div class="col-lg-6">
+        <object type="image/svg+xml" data="top100_prices.svg">Your browser does not support <span class="caps">SVG</span></object>
+    </div>
+    <div class="col-lg-6">
+        <object type="image/svg+xml" data="top100_prices_removed_outliers.svg">Your browser does not support <span class="caps">SVG</span></object>
+    </div>
+</div>
+
+<p>In case you are wondering, there were some&nbsp;outliers:</p>
+<ul>
+<li>One had <strong>100g of <span class="caps">MDMA</span> for $1510.77</strong>. <strong>It had 392&nbsp;ratings.</strong></li>
+<li>Another was selling <strong>100g of mdma for $1186</strong> and <strong>50g for $659</strong>. They had <strong>293 ratings</strong> and <em>*279 ratings</em>&nbsp;respectively.</li>
+<li>The other was for <strong>1/4lb of bulk medical marijuana for $619.10</strong>. <strong>It had 378&nbsp;ratings.</strong></li>
+</ul>
+<p>I somehow doubt this guy has sold half a million dollars worth of <span class="caps">MDMA</span> at $1.5k a pop in such a huge quantity, but the price seems to be in line with other sellers for an equivalent amount. <strong>I’m not entirely sure what the rules are regarding who can give feedback, but there seem to be people buying huge quantites if a user must buy a product to be able to review it. I have never purchased anything from the site, and I wasn’t presented with any choices to review an&nbsp;item.</strong></p>
+<p>If only people who purchase the item can review it, then I am a bit less skeptical. I saw one canadian seller listing 1 kilo of <span class="caps">MDMA</span> for USD $8k with 1&nbsp;review!</p>
+<p>========================================================</p>
+<h4 id="the-average-price-of-the-top-100-items-is-129-">The average price of the top 100 items is <code>$129</code></h4>
+<h4 id="the-average-price-of-the-top-500-items-is-188-">The average price of the top 500 items is <code>$188</code></h4>
+<h4 id="the-average-price-of-the-top-1000-items-is-236-">The average price of the top 1000 items is <code>$236</code></h4>
+<p><code>Prices are converted to USD at time of crawl using exchange rates from the coinbase api.</code></p>
+<h3 id="countries">Countries</h3>
+<hr>
+<p>Sellers on <span class="caps">SR</span> can specify where they ship from and where they ship&nbsp;to.</p>
+<object type="image/svg+xml" data="sellers_by_country.svg">Your browser does not support <span class="caps">SVG</span></object>
+
+<pre><code class="lang-md">isocode number of listings
+--------------------------------
+us   93
+au   45
+gb   40
+de   39
+nl   35
+ca   32
+se   10
+cn   6
+za   4
+be   4
+it   2
+es   2
+nz   2
+no   2
+ie   2
+pl   2
+dk   2
+sk   1
+cz   1
+fi   1
+fr   1
+ch   1
+at   1
+in   1
+</code></pre>
+<h3 id="observations">Observations</h3>
+<hr>
+<h4 id="total-sales-volume">Total Sales&nbsp;Volume</h4>
+<blockquote>
+<p>If, indeed every sale can map to a transaction, some vendors are doing huge amounts of business through mail order drugs. While the number is small, <strong>if we sum up all the product reviews x product prices, we get a huge number of <code>USD $20,668,330.05</code>.</strong></p>
+<p><span class="caps">REMEMBER</span>! This is on Silk Road 2.0 with a very small subset of their entire&nbsp;inventory.</p>
+</blockquote>
+<pre><code class="lang-sql">sqlite&gt; SELECT SUM(review_count * price_usd) FROM silkroad_data WHERE review_count &gt; 0;
+20668330.0569627
+sqlite&gt; SELECT COUNT(*) FROM silkroad_data;
+3579
+</code></pre>
+<h4 id="comparing-to-agora">Comparing to&nbsp;Agora</h4>
+<blockquote>
+<p>The agora marketplace seems to have more or less the same number of listings. It would be interesting to see whether or not the sellers are the same or different between the&nbsp;sites.</p>
+</blockquote>
+<h4 id="junk-listings">Junk&nbsp;listings</h4>
+<blockquote>
+<p><span class="caps">SR</span> has quite a lot of junk listings, there are all sorts of listings unrelated to the product category. I had to filter out quite a lot of listings which deviated too far from the mean price per unit volume. The Agora Marketplace seems to be a bit better curated and moderated. I think suspect that it has more <strong>real</strong> inventory than&nbsp;<span class="caps">SR</span>.</p>
+</blockquote>
+<h3 id="closing">Closing</h3>
+<hr>
+<h4 id="i-won-t-tell-you-that-i-know-what-i-m-doing">I won’t tell you that I know what I’m&nbsp;doing</h4>
+<blockquote>
+<p>This is simply a collection of observations from someone who knows pretty much nothing about the drug world. It is probably among the longest articles I have ever written, any suggestions with regard to writing would be greatly appreciated. It must have taken me at least 3 times the amount of time to write this article versus getting all the&nbsp;data!</p>
+</blockquote>
+<h4 id="need-more-data">Need more&nbsp;data</h4>
+<blockquote>
+<p>I’ve set up a cron-type job to crawl <span class="caps">SR</span> daily and crunch some numbers. It will be interesting to see how things change over time, though a month may not be enough time to see any significant shifts. I will release the source code for the crawler when I am done, with the SR specific portions removed if anyone is interested. I’ll also set something up to gather data from&nbsp;Agora.</p>
+</blockquote>
+<h4 id="this-was-a-bit-much-for-me">This was a bit much for&nbsp;me</h4>
+<blockquote>
+<p>It was really creepy looking through all those drug listings, with rocks of all sorts of shapes and colors. I spent way too much time writing this article, hope someone finds it&nbsp;educational.</p>
+</blockquote>
+<h3 id="to-be-continued-">To be continued&nbsp;…</h3>
+<hr>
+<blockquote>
+<p>Part 1 gave us an overall, albeit superficial view of the numbers behind <span class="caps">SR</span>&nbsp;2.0.</p>
+<p>Part 2 will focus on pricing, trends and&nbsp;predictions.</p>
+<p>In the last part of the series, I will report on changes over&nbsp;time.</p>
+</blockquote>
+</section>
+              </article><a href="/blog.html"><a href="/">
+                  <div class="btn btn-default">« All blog entries</div></a></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <footer>
+        <div class="copy-ctr">
+          <div class="copy">
+            <p>&copy; 2014</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <title>Welcome! - lau.im
+    <title>Mineye, a reverse image search engine - lau.im
     </title>
     <link rel="alternate" href="http://lau.im/feed.xml" type="application/rss+xml" title="">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -28,12 +28,23 @@
         <div class="col-12 col-lg-12">
           <div id="content">
             <div class="content-wrap">
-              <h1>Welcome!</h1>
+              <h1>Mineye, a reverse image search engine</h1>
               <p class="author">Written by <span class="author"><a href="mailto:daryl@lau.im">Daryl Lau</a></span>
               </p>
               <article class="article">
-                <section class="content"><p>All ongoing projects and blog posts will be migrated to the <a href="http://weak.io/">weak.io</a> domain from now&nbsp;on.</p>
-<p>Keep an eye out for more&nbsp;updates!</p>
+                <section class="content"><p>Been experimenting a bit with generic object detection and similarity matching using just public libraries, the result can be found&nbsp;here:</p>
+<p><a href="https://github.com/dlau/mineye">github&nbsp;link</a></p>
+<p><img src="https://camo.githubusercontent.com/86fffc11c105ef55de202c7db53cec535bb5ee4c/687474703a2f2f692e6375626575706c6f61642e636f6d2f386e566a644f2e676966" alt="animation"></p>
+<p>I’ll write up a more detailed description soon, but the idea is&nbsp;simple.</p>
+<ul>
+<li>A user uploads an&nbsp;image</li>
+<li>Analyze the image and stick everything into a gigantic matrix. This matrix is just a concatenation of descriptor vectors from our detector. In the project I’m using <span class="caps">SURF</span>, but you probably want to use something different, due to patent&nbsp;issues.</li>
+<li>To look up similar images, do a nearest neighbor search on the mega matrix versus the descriptors of the image you are checking against. This “similarity” is calculated using lowe’s technique, (match[0].distance &lt; .6*match[1].distance)<ul>
+<li>In practice, this kNN search is pretty slow, so we use <a href="http://www.cs.ubc.ca/~mariusm/uploads/FLANN/manual.pdf"><span class="caps">FLANN</span></a> to get an approximate nearest&nbsp;neighbor</li>
+</ul>
+</li>
+</ul>
+<p><em>hope to revisit this in the&nbsp;future</em></p>
 </section>
               </article><a href="/blog.html"><a href="/">
                   <div class="btn btn-default">« All blog entries</div></a></a>
