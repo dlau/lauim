@@ -1,65 +1,40 @@
-
-h1, h2, h3, h4, h5, h6, p, body, a, img, ul, ol, blockquote, pre {
-  margin: 0; padding: 0; border: 0;
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
+  background-color : #2ecc71;
 }
 
-body {
-  font-family: 'Lora', serif;
-  font-size: 22px;
-  background-color: #f8f8f8;
-}
-
-.hero {
-  height: 500px;
-  width: 100%;
-  background: url(/img/hero_sml.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover; /* For WebKit*/
-  -moz-background-size: cover;    /* Mozilla*/
-  -o-background-size: cover;      /* Opera*/
-  background-size: cover;         /* Generic*/
-
-}
-
-.info-unit{
-  margin : 100px 20px 0 0;
-  padding: 20px 10px 20px 10px;
-  background-color : #ccc;
-  background-color : rgba(0,0,0,.4);
-  border-radius : 5px;
-  color : #fff;
-  text-align:center;
-}
-
-.button.empty{
-  background: none;
-  /*border : 1px solid #00c6a9;*/
-  border : 1px solid #fff;
-  margin-top : 5px;
-}
-
-
-.grid-preview{
-  padding: 5px;
-}
-
-.grid-inner{
-  background-color : rgba(206, 206, 206,.2);
-  border-radius: 5px;
-  padding: 5px;
+body{
+  background-color: #ccc;
+  font-family: "Lusitana", Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .container{
-  width: 1024px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 15px auto;
+  background-color: #fff;
 }
 
-.copy{
-  margin: 15px;
+ul.topnav{
+  margin-top: 5px;
+}
+
+ul.topnav>li{
+  padding: 5px;
+}
+
+img.logo{
+  width: 40px;
+  height: 40px;
+}
+
+footer{
+  margin-top: 10px;
+}
+
+
+.copy-ctr{
   text-align:center;
 }
 
-.centered{
-  text-align: center;
+.copy{
+  margin-left : auto;
+  margin-right : auto;
 }
+

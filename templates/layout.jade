@@ -2,13 +2,13 @@ doctype html
 block vars
   -var section = null;
 
-mixin liForSection(section, expected)
-  if section === expected
-    li.active
-      block
-  else
-    li
-      block
+mixin liForSection(expected, url)
+  li
+    if section === expected
+      = expected
+    else
+      a(href=url)
+        = expected
 
 html(lang='en')
   head
@@ -18,25 +18,21 @@ html(lang='en')
       meta(name='viewport', content='width=device-width')
       title
         block title
-          = 'weak.io'
+          = 'lau.im'
       link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
-      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lusitana:400,700')
       link(rel='stylesheet', href='/css/bootstrap.min.css')
       link(rel='stylesheet', href='/css/normalize.css')
+      link(rel='stylesheet', href='/css/highlight.min.css')
       link(rel='stylesheet', href='/css/main.css')
   body
     .container.container-content
       .row
         .col-12.col-lg-12
-          ul.nav.nav-pills.topnav
-            li
-              img.logo(src='/img/logo.png')
-            +liForSection(section, 'home')
-              a(href='/') Home
-            +liForSection(section, 'projects')
-              a(href='/projects.html') Projects
-            +liForSection(section, 'about')
-              a(href='/about.html') About
+          ul.list-inline.topnav
+            +liForSection('Home', '/')
+            //-Temporarily disable
+            //-+liForSection('Projects', '/projects.html')
+            +liForSection('Contact', '/contact.html')
       .row
         .col-12.col-lg-12
           div#content
@@ -46,7 +42,9 @@ html(lang='en')
       footer
         div.copy-ctr
           .copy
-            p &copy; #{ new Date().getFullYear() } weak.io
+            p &copy; #{ new Date().getFullYear() }
 
     script(type='text/javascript',src='/js/jquery.min.js')
-    script(type='text/javascript',src='/js/bootstrap.min.js')
+    script(type='text/javascript',src='/js/highlight.min.js')
+    script.
+      hljs.initHighlightingOnLoad();
