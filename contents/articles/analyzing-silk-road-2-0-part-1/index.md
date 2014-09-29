@@ -47,6 +47,11 @@ I thought it would be really interesting to scrape SR for, let's say a month or 
 **The nature of web crawling through tor:**
 > Crawling through tor already obfuscates your identity to a certain degree, so we don't really have to do anything other than cycling `User-Agent` strings to look different from any other client.
 
+##Data Extract
+---
+I've made a one day snapshot available at [github.com/dlau/sr-data](https://github.com/dlau/sr-data)
+
+I will release the source code for the crawler when I am done, with the SR specific portions removed if anyone is interested. This will all go to the same repo.
 
 ##Findings
 ---
@@ -216,14 +221,11 @@ sqlite> SELECT COUNT(*) FROM silkroad_data;
 >This is simply a collection of observations from someone who knows pretty much nothing about the drug world. It is probably among the longest articles I have ever written, any suggestions with regard to writing would be greatly appreciated. It must have taken me at least 3 times the amount of time to write this article versus getting all the data!
 
 ####Need more data
->I've set up a cron-type job to crawl SR daily and crunch some numbers. It will be interesting to see how things change over time, though a month may not be enough time to see any significant shifts. I will release the source code for the crawler when I am done, with the SR specific portions removed if anyone is interested. I'll also set something up to gather data from Agora.
+>I've set up a cron-type job to crawl SR daily and crunch some numbers. It will be interesting to see how things change over time, though a month may not be enough time to see any significant shifts. 
 
 ####This was a bit much for me
 >It was really creepy looking through all those drug listings, with rocks of all sorts of shapes and colors. I spent way too much time writing this article, hope someone finds it educational.
 
-
-####If you liked this
->I'll be posting some anonymized data extracts to [github](https://github.com/dlau). Some follow up articles will come if there is any interest.
 
 ###To be continued ...
 ---
