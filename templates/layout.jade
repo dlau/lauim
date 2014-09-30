@@ -25,7 +25,7 @@ html(lang='en')
       link(rel='stylesheet', href='/css/highlight.min.css')
       link(rel='stylesheet', href='/css/main.css')
   body
-    .container.container-content
+    .container-fluid
       .row
         .col-12.col-lg-12
           ul.list-inline.topnav
@@ -34,10 +34,9 @@ html(lang='en')
             //-+liForSection('Projects', '/projects.html')
             +liForSection('Contact', '/contact.html')
       .row
-        .col-12.col-lg-12
-          div#content
-            div.content-wrap
-              block content
+        .col-xs-12.col-sm-12.col-md-12.col-lg-12
+          #content
+            block content
       footer
         div.copy-ctr
           .copy

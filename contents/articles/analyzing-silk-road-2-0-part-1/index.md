@@ -5,9 +5,7 @@ date: 2014-09-27
 template: article.jade
 ---
 
-<div style="text-align:center;">
-    ![](breakingbad.jpg)
-</div>
+![](breakingbad.jpg)
 
 ##Impetus
 ---
@@ -22,11 +20,9 @@ I thought it would be really interesting to scrape SR for, let's say a month or 
 ---
 **The following information is for educational purposes only, I have no affiliation with the Silk Road 2.0, nor have I ever purchased anything off the site. As far as I know, visiting the site and writing about it with no intention to buy (commit a crime) is perfectly legal.**
 
-##Some implementation quirks
+##Implementation quirks
 ---
-<div style="text-align:center;">
-    ![](captchafailure.jpg)
-</div>
+![](captchafailure.jpg)
 
 <br/>
 **Before we begin:** I only wanted to spend an hour or two doing this. I was late for a dinner and wanted it to run overnight while I was sleeping. If you are looking to build a robust system, you should consider a different solution.
@@ -89,7 +85,6 @@ Opium       53
 Mescaline   20
 Total       3585
 ```
-`weed is simply marijuana that is smoked, not any other derivative such as hash`
 
 To put things in perspective, at the moment of writing this SR has approximately 13,000 listings for drugs. Just a guess, but it looks like prescription drugs account for a large portion of SR drug listings.
 
@@ -155,11 +150,10 @@ I somehow doubt this guy has sold half a million dollars worth of MDMA at $1.5k 
 
 If only people who purchase the item can review it, then I am a bit less skeptical. I saw one canadian seller listing 1 kilo of MDMA for USD $8k with 1 review!
 
-========================================================
 ####The average price of the top 100 items is `$129`
 ####The average price of the top 500 items is `$188`
 ####The average price of the top 1000 items is `$236`
-`Prices are converted to USD at time of crawl using exchange rates from the coinbase api.`
+*Prices are converted to USD at time of crawl using exchange rates from the coinbase api.*
 ###Countries
 ---
 Sellers on SR can specify where they ship from and where they ship to.
