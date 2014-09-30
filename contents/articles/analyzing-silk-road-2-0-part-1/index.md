@@ -234,3 +234,5 @@ sqlite> SELECT COUNT(*) FROM silkroad_data;
 >Part 2 will focus on pricing, trends and predictions.
 
 >In the last part of the series, I will report on changes over time.
+
+[hacker news discussion](https://news.ycombinator.com/item?id=8384807) | [data set will be updated here](https://github.com/dlau/sr-data)
