@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
-    <div class="container container-content">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-lg-12">
           <ul class="list-inline topnav">
@@ -25,17 +25,13 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <div id="content">
-            <div class="content-wrap">
-              <h1>Analyzing Trends in the Silk Road 2.0</h1>
-              <p class="author">Written by <span class="author"><a href="mailto:daryl@lau.im">Daryl Lau</a></span>
-              </p>
-              <article class="article">
-                <section class="content"><div style="text-align:center;">
-    <img src="/articles/analyzing-silk-road-2-0-part-1/breakingbad.jpg" alt="">
-</div>
-
+            <h1>Analyzing Trends in the Silk Road 2.0</h1>
+            <p class="author">Written by <span class="author"><a href="mailto:daryl@lau.im">Daryl Lau</a></span>
+            </p>
+            <article class="article">
+              <section class="content"><p><img src="/articles/analyzing-silk-road-2-0-part-1/breakingbad.jpg" alt=""></p>
 <h2 id="impetus">Impetus</h2>
 <hr>
 <p>Last Friday, one of the top articles on <a href="http://news.ycombinator.com/">hacker news</a> was called <a href="https://github.com/mieko/sr-captcha">Breaking the Silk Road’s&nbsp;Captcha</a></p>
@@ -44,12 +40,9 @@
 <h2 id="disclaimer">Disclaimer</h2>
 <hr>
 <p><strong>The following information is for educational purposes only, I have no affiliation with the Silk Road 2.0, nor have I ever purchased anything off the site. As far as I know, visiting the site and writing about it with no intention to buy (commit a crime) is perfectly&nbsp;legal.</strong></p>
-<h2 id="some-implementation-quirks">Some implementation&nbsp;quirks</h2>
+<h2 id="implementation-quirks">Implementation&nbsp;quirks</h2>
 <hr>
-<div style="text-align:center;">
-    <img src="/articles/analyzing-silk-road-2-0-part-1/captchafailure.jpg" alt="">
-</div>
-
+<p><img src="/articles/analyzing-silk-road-2-0-part-1/captchafailure.jpg" alt=""></p>
 <p><br/>
 <strong>Before we begin:</strong> I only wanted to spend an hour or two doing this. I was late for a dinner and wanted it to run overnight while I was sleeping. If you are looking to build a robust system, you should consider a different&nbsp;solution.</p>
 <p><strong>Captcha</strong></p>
@@ -107,7 +100,6 @@ Opium       53
 Mescaline   20
 Total       3585
 </code></pre>
-<p><code>weed is simply marijuana that is smoked, not any other derivative such as hash</code></p>
 <p>To put things in perspective, at the moment of writing this <span class="caps">SR</span> has approximately 13,000 listings for drugs. Just a guess, but it looks like prescription drugs account for a large portion of SR drug&nbsp;listings.</p>
 <p>Nothing much to say here, other than the fact that <span class="caps">MDMA</span> seems to have the most&nbsp;listings.</p>
 <h3 id="highest-number-of-ratings">Highest number of&nbsp;ratings</h3>
@@ -163,11 +155,10 @@ Heroin&nbsp;1</p>
 </ul>
 <p>I somehow doubt this guy has sold half a million dollars worth of <span class="caps">MDMA</span> at $1.5k a pop in such a huge quantity, but the price seems to be in line with other sellers for an equivalent amount. <strong>I’m not entirely sure what the rules are regarding who can give feedback, but there seem to be people buying huge quantites if a user must buy a product to be able to review it. I have never purchased anything from the site, and I wasn’t presented with any choices to review an&nbsp;item.</strong></p>
 <p>If only people who purchase the item can review it, then I am a bit less skeptical. I saw one canadian seller listing 1 kilo of <span class="caps">MDMA</span> for USD $8k with 1&nbsp;review!</p>
-<p>========================================================</p>
 <h4 id="the-average-price-of-the-top-100-items-is-129-">The average price of the top 100 items is <code>$129</code></h4>
 <h4 id="the-average-price-of-the-top-500-items-is-188-">The average price of the top 500 items is <code>$188</code></h4>
 <h4 id="the-average-price-of-the-top-1000-items-is-236-">The average price of the top 1000 items is <code>$236</code></h4>
-<p><code>Prices are converted to USD at time of crawl using exchange rates from the coinbase api.</code></p>
+<p><em>Prices are converted to <span class="caps">USD</span> at time of crawl using exchange rates from the coinbase&nbsp;api.</em></p>
 <h3 id="countries">Countries</h3>
 <hr>
 <p>Sellers on <span class="caps">SR</span> can specify where they ship from and where they ship&nbsp;to.</p>
@@ -243,18 +234,17 @@ sqlite&gt; SELECT COUNT(*) FROM silkroad_data;
 </blockquote>
 <p><a href="https://news.ycombinator.com/item?id=8384807">hacker news discussion</a> | <a href="https://github.com/dlau/sr-data">data set will be updated&nbsp;here</a></p>
 </section>
-              </article><a href="/blog.html"><a href="/">
-                  <div class="btn btn-default">« All blog entries</div></a></a>
-              <div id="disqus_thread">
-                <script type="text/javascript">
-                  var disqus_shortname = 'lauim';
-                  (function() {
-                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                  })();
-                </script>
-              </div>
+            </article><a href="/blog.html"><a href="/">
+                <div class="btn btn-default">« All blog entries</div></a></a>
+            <div id="disqus_thread">
+              <script type="text/javascript">
+                var disqus_shortname = 'lauim';
+                (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
             </div>
           </div>
         </div>
